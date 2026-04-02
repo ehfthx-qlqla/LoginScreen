@@ -33,6 +33,9 @@
             txtPW = new TextBox();
             txtID = new TextBox();
             lblErrorMsg = new Label();
+            btnDeleteID = new Button();
+            btnShowPW = new Button();
+            btnDeletePW = new Button();
             SuspendLayout();
             // 
             // lblAppName
@@ -67,6 +70,7 @@
             txtPW.Size = new Size(620, 80);
             txtPW.TabIndex = 3;
             txtPW.Text = "패스워드";
+            txtPW.TextChanged += txtPW_TextChanged;
             txtPW.Enter += txtPW_Enter;
             txtPW.KeyDown += txtPW_KeyDown;
             txtPW.Leave += txtPW_Leave;
@@ -81,6 +85,7 @@
             txtID.Size = new Size(620, 80);
             txtID.TabIndex = 2;
             txtID.Text = "아이디";
+            txtID.TextChanged += txtID_TextChanged;
             txtID.Enter += txtID_Enter;
             txtID.KeyDown += txtID_KeyDown;
             txtID.Leave += txtID_Leave;
@@ -97,11 +102,45 @@
             lblErrorMsg.Text = "아이디 또는 비밀번호가 잘못되었습니다.";
             lblErrorMsg.Visible = false;
             // 
+            // btnDeleteID
+            // 
+            btnDeleteID.Location = new Point(687, 229);
+            btnDeleteID.Name = "btnDeleteID";
+            btnDeleteID.Size = new Size(41, 34);
+            btnDeleteID.TabIndex = 5;
+            btnDeleteID.Text = "×";
+            btnDeleteID.UseVisualStyleBackColor = true;
+            btnDeleteID.TextChanged += btnDeleteID_TextChanged;
+            btnDeleteID.Click += btnDeleteID_Click;
+            // 
+            // btnShowPW
+            // 
+            btnShowPW.Location = new Point(639, 350);
+            btnShowPW.Name = "btnShowPW";
+            btnShowPW.Size = new Size(42, 34);
+            btnShowPW.TabIndex = 6;
+            btnShowPW.Text = "👁";
+            btnShowPW.UseVisualStyleBackColor = true;
+            btnShowPW.Click += btnShowPW_Click;
+            // 
+            // btnDeletePW
+            // 
+            btnDeletePW.Location = new Point(687, 350);
+            btnDeletePW.Name = "btnDeletePW";
+            btnDeletePW.Size = new Size(41, 34);
+            btnDeletePW.TabIndex = 7;
+            btnDeletePW.Text = "×";
+            btnDeletePW.UseVisualStyleBackColor = true;
+            btnDeletePW.Click += btnDeletePW_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(842, 684);
+            Controls.Add(btnDeletePW);
+            Controls.Add(btnShowPW);
+            Controls.Add(btnDeleteID);
             Controls.Add(lblErrorMsg);
             Controls.Add(txtID);
             Controls.Add(txtPW);
@@ -120,5 +159,8 @@
         private TextBox txtPW;
         private TextBox txtID;
         private Label lblErrorMsg;
+        private Button btnDeleteID;
+        private Button btnShowPW;
+        private Button btnDeletePW;
     }
 }
