@@ -52,13 +52,33 @@ namespace LoginScreen
         {
             string inputID = txtID.Text;
             string inputPW = txtPW.Text;
-            if (inputID == myID && inputPW == myPW) 
-            { 
+            if (inputID == myID && inputPW == myPW)
+            {
                 MessageBox.Show("로그인성공!");
-            } 
-            else 
-            { 
-                MessageBox.Show("로그인실패~"); 
+            }
+            else
+            {
+                //MessageBox.Show("로그인실패~"); 
+                //MessageBox.Show("아이디 또는 패스워드가 잘못 입력되었습니다.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblErrorMsg.Visible = true;
+            }
+        }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본비프음방지
+                txtPW.Focus(); // 패스워드입력창이포커스를갖게끔
+            }
+        }
+
+        private void txtPW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본비프음방지
+                btnLogin.PerformClick(); // 버튼이눌린것처럼만들기
             }
         }
     }
